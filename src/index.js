@@ -1,17 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import rd from 'react-dom';
+import {useState} from 'react';
+import pizza from "./pizza.gif";
+const App=()=>{const [a,b]=useState({height:320,width:320});return(<div><div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gridGap:"12px",padding:"9px"}}><section><label for="height-resizer">Change height number: </label><input type="range" value={a.height} min={100} max={800} name="height-resizer" id="height-resizer" onChange={f=>{b({...a,height:f.target.value});}} /></section><section><label for="width-resizer">Change width number: </label><input type="range" value={a.width} min={100} max={800} onChange={f=>{b({...a,width:f.target.value});}} id="width-resizer" name="width-resizer" title="change width number" /></section></div><label for="height-displayer">Height in pixel number : </label><input type="number" disabled={true} value={a.height} name={"height-displayer"} id="height-displayer" /><br /><label for="width-displayer">Width in pixel number: </label><input type="number" disabled={true} value={a.width} id="width-displayer" name="width-displayer" /><br /><img src={pizza} alt="pizza" id="pizza" title="a pizza slice"  height={a.height} width={a.width} /><br/><hr/></div>);};
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+rd.render(<App/>,document.querySelector("#hi"));
